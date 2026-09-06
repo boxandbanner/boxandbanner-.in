@@ -5,21 +5,471 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Box & Banner | Unwrap Happiness</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f1e7;
+      color: #1c1c1c;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #050505;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #b98728;
+    }
+
+    .logo img {
+      width: 95px;
+      height: auto;
+      display: block;
+    }
+
+    nav a {
+      color: #f1d394;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 88vh;
+      background:
+        radial-gradient(circle at center, #302410 0%, #120e07 40%, #050505 75%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-logo {
+      width: 240px;
+      max-width: 70%;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: 58px;
+      font-weight: 500;
+      color: #d8aa4a;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      font-size: 18px;
+      letter-spacing: 6px;
+      font-weight: 400;
+      color: #f4d995;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 34px;
+      font-size: 19px;
+      color: #eee2cc;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 26px;
+      margin: 6px;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .gold-button {
+      background: linear-gradient(135deg, #d8aa4a, #a87018);
+      color: #050505;
+    }
+
+    .outline-button {
+      border: 1px solid #d8aa4a;
+      color: #f4d995;
+    }
+
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #a87018;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+
+    .section-title h2 {
+      font-family: Georgia, serif;
+      font-size: 38px;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .collections {
+      background: #fffaf2;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 42px 28px;
+      border: 1px solid #ead9b7;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      font-family: Georgia, serif;
+      color: #8b5f17;
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    .corporate {
+      background: #0b0b0b;
+      color: white;
+      text-align: center;
+    }
+
+    .corporate h2 {
+      font-family: Georgia, serif;
+      color: #d8aa4a;
+      font-size: 40px;
+      margin-bottom: 18px;
+    }
+
+    .corporate p {
+      max-width: 750px;
+      margin: 0 auto 30px;
+      color: #ddd0b9;
+      font-size: 17px;
+    }
+
+    .why {
+      background: #f7f1e7;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      text-align: center;
+    }
+
+    .why-item {
+      padding: 26px 20px;
+    }
+
+    .why-item h3 {
+      color: #9b6b1e;
+      margin-bottom: 8px;
+    }
+
+    .contact {
+      background: #fffaf2;
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 24px;
+      color: #555;
+    }
+
+    footer {
+      background: #050505;
+      color: #cdb98c;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+
+      header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero h2 {
+        letter-spacing: 3px;
+        font-size: 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-logo {
+        width: 180px;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-  <h1>BOX & BANNER</h1>
+  <header>
 
-  <h2>UNWRAP HAPPINESS</h2>
+    <div class="logo">
+      <img src="BB_Logo_Transparent.png" alt="Box & Banner Logo">
+    </div>
 
-  <p>
-    Premium Corporate, Festive & Occasion Gifting
-  </p>
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#collections">COLLECTIONS</a>
+      <a href="#corporate">CORPORATE</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
 
-  <p>
-    Our new website is coming soon.
-  </p>
+  </header>
+
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <img
+        class="hero-logo"
+        src="BB_Logo_Transparent.png"
+        alt="Box & Banner"
+      >
+
+      <h1>BOX & BANNER</h1>
+
+      <h2>UNWRAP HAPPINESS</h2>
+
+      <p>
+        Thoughtfully curated premium gifts for celebrations,
+        corporate milestones and unforgettable occasions.
+      </p>
+
+      <a class="button gold-button" href="#collections">
+        EXPLORE COLLECTION
+      </a>
+
+      <a class="button outline-button" href="#corporate">
+        CORPORATE ENQUIRY
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section class="collections" id="collections">
+
+    <div class="section-title">
+      <span>Our Collections</span>
+      <h2>Gifting Made Memorable</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Festive Gifting</h3>
+        <p>
+          Elegant Diwali and festive hampers designed for
+          meaningful celebrations.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Corporate Gifting</h3>
+        <p>
+          Premium customised gifting solutions for employees,
+          clients and business partners.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Dry Fruit Hampers</h3>
+        <p>
+          Beautifully presented premium dry fruits in elegant
+          gifting boxes.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Luxury Jar Hampers</h3>
+        <p>
+          Reusable premium jars presented in sophisticated
+          gifting arrangements.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Return Gifts</h3>
+        <p>
+          Thoughtful return gifting options for weddings,
+          birthdays and celebrations.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Occasion Gifting</h3>
+        <p>
+          Curated gifts for housewarming, baby showers,
+          poojas and special moments.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="corporate" id="corporate">
+
+    <h2>Corporate Gifting, Thoughtfully Curated</h2>
+
+    <p>
+      From employee appreciation and festive gifting to client
+      engagement and milestone celebrations, Box & Banner creates
+      elegant customised gifting experiences for businesses.
+    </p>
+
+    <a class="button gold-button" href="#contact">
+      REQUEST A CORPORATE QUOTE
+    </a>
+
+  </section>
+
+
+  <section class="why" id="about">
+
+    <div class="section-title">
+      <span>Why Box & Banner</span>
+      <h2>Designed to Delight</h2>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-item">
+        <h3>Premium Quality</h3>
+        <p>Carefully selected products and elegant presentation.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Customisation</h3>
+        <p>Branding and gifting options tailored to your requirements.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Bulk Gifting</h3>
+        <p>Solutions designed for corporate and large-volume orders.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Thoughtful Curation</h3>
+        <p>Every hamper is designed to create a memorable experience.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="contact" id="contact">
+
+    <div class="section-title">
+      <span>Get In Touch</span>
+      <h2>Let's Create Something Special</h2>
+    </div>
+
+    <p>
+      Looking for customised gifting, corporate hampers or bulk orders?
+      We'd love to help.
+    </p>
+
+    <a class="button gold-button" href="mailto:hello@boxandbanner.in">
+      EMAIL US
+    </a>
+
+  </section>
+
+
+  <footer>
+    © 2026 Box & Banner. All Rights Reserved. | Unwrap Happiness
+  </footer>
 
 </body>
 </html>
