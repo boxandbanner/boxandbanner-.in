@@ -19,22 +19,22 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7f1e7;
-      color: #1c1c1c;
+      background: #F3E5C8;
+      color: #4A2B25;
       line-height: 1.6;
     }
 
     header {
-      background: #050505;
-      color: white;
-      padding: 18px 6%;
+      background: #F6E9CD;
+      padding: 16px 6%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid #b98728;
+      border-bottom: 1px solid #C69A4B;
+      box-shadow: 0 2px 12px rgba(75, 48, 35, 0.08);
     }
 
     .logo img {
@@ -44,22 +44,22 @@
     }
 
     nav a {
-      color: #f1d394;
+      color: #652D36;
       text-decoration: none;
       margin-left: 24px;
       font-size: 14px;
+      font-weight: bold;
       letter-spacing: 1px;
     }
 
     nav a:hover {
-      color: white;
+      color: #B8862D;
     }
 
     .hero {
       min-height: 88vh;
       background:
-        radial-gradient(circle at center, #302410 0%, #120e07 40%, #050505 75%);
-      color: white;
+        radial-gradient(circle at center, #FFF8E8 0%, #F3E5C8 55%, #E5CF9F 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -68,11 +68,11 @@
     }
 
     .hero-content {
-      max-width: 850px;
+      max-width: 880px;
     }
 
     .hero-logo {
-      width: 240px;
+      width: 250px;
       max-width: 70%;
       margin-bottom: 28px;
     }
@@ -81,7 +81,7 @@
       font-family: Georgia, serif;
       font-size: 58px;
       font-weight: 500;
-      color: #d8aa4a;
+      color: #7A3742;
       letter-spacing: 4px;
       margin-bottom: 12px;
     }
@@ -89,8 +89,8 @@
     .hero h2 {
       font-size: 18px;
       letter-spacing: 6px;
-      font-weight: 400;
-      color: #f4d995;
+      font-weight: 500;
+      color: #B8862D;
       margin-bottom: 28px;
     }
 
@@ -98,27 +98,38 @@
       max-width: 680px;
       margin: 0 auto 34px;
       font-size: 19px;
-      color: #eee2cc;
+      color: #5F463D;
     }
 
     .button {
       display: inline-block;
-      padding: 14px 26px;
+      padding: 14px 28px;
       margin: 6px;
-      border-radius: 3px;
+      border-radius: 4px;
       text-decoration: none;
       font-weight: bold;
       letter-spacing: 0.5px;
+      transition: 0.3s;
     }
 
-    .gold-button {
-      background: linear-gradient(135deg, #d8aa4a, #a87018);
-      color: #050505;
+    .primary-button {
+      background: #6C2C38;
+      color: #FFF8E8;
+      border: 1px solid #6C2C38;
     }
 
-    .outline-button {
-      border: 1px solid #d8aa4a;
-      color: #f4d995;
+    .primary-button:hover {
+      background: #8A4150;
+    }
+
+    .secondary-button {
+      background: transparent;
+      color: #7A3742;
+      border: 1px solid #B8862D;
+    }
+
+    .secondary-button:hover {
+      background: #EAD5A7;
     }
 
     section {
@@ -131,10 +142,11 @@
     }
 
     .section-title span {
-      color: #a87018;
+      color: #B8862D;
       text-transform: uppercase;
       letter-spacing: 3px;
       font-size: 13px;
+      font-weight: bold;
     }
 
     .section-title h2 {
@@ -142,10 +154,11 @@
       font-size: 38px;
       margin-top: 8px;
       font-weight: 500;
+      color: #6C2C38;
     }
 
     .collections {
-      background: #fffaf2;
+      background: #FFF9EE;
     }
 
     .cards {
@@ -155,52 +168,59 @@
     }
 
     .card {
-      background: white;
+      background: #F8EBCF;
       padding: 42px 28px;
-      border: 1px solid #ead9b7;
+      border: 1px solid #D6B36A;
       text-align: center;
       transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(105, 72, 50, 0.06);
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      box-shadow: 0 14px 30px rgba(105, 72, 50, 0.12);
     }
 
     .card h3 {
       font-family: Georgia, serif;
-      color: #8b5f17;
+      color: #7A3742;
       font-size: 23px;
       margin-bottom: 12px;
     }
 
     .card p {
-      color: #666;
+      color: #66534B;
       font-size: 15px;
     }
 
     .corporate {
-      background: #0b0b0b;
+      background: #6C2C38;
       color: white;
       text-align: center;
     }
 
     .corporate h2 {
       font-family: Georgia, serif;
-      color: #d8aa4a;
+      color: #F4D99A;
       font-size: 40px;
       margin-bottom: 18px;
     }
 
     .corporate p {
-      max-width: 750px;
+      max-width: 760px;
       margin: 0 auto 30px;
-      color: #ddd0b9;
+      color: #F8EEDB;
       font-size: 17px;
     }
 
+    .corporate .primary-button {
+      background: #D5A448;
+      color: #4B252B;
+      border-color: #D5A448;
+    }
+
     .why {
-      background: #f7f1e7;
+      background: #F3E5C8;
     }
 
     .why-grid {
@@ -211,34 +231,39 @@
     }
 
     .why-item {
-      padding: 26px 20px;
+      padding: 30px 20px;
+      border-top: 1px solid #C69A4B;
     }
 
     .why-item h3 {
-      color: #9b6b1e;
+      color: #7A3742;
       margin-bottom: 8px;
+      font-family: Georgia, serif;
+    }
+
+    .why-item p {
+      color: #66534B;
     }
 
     .contact {
-      background: #fffaf2;
+      background: #FFF9EE;
       text-align: center;
     }
 
     .contact p {
       margin-bottom: 24px;
-      color: #555;
+      color: #5F463D;
     }
 
     footer {
-      background: #050505;
-      color: #cdb98c;
+      background: #5B2631;
+      color: #F3DFB6;
       text-align: center;
       padding: 28px 20px;
       font-size: 14px;
     }
 
     @media (max-width: 850px) {
-
       header {
         flex-direction: column;
         gap: 14px;
@@ -280,14 +305,12 @@
         width: 180px;
       }
     }
-
   </style>
 </head>
 
 <body>
 
   <header>
-
     <div class="logo">
       <img src="BB_Logo_Transparent.png" alt="Box & Banner Logo">
     </div>
@@ -299,7 +322,6 @@
       <a href="#about">ABOUT</a>
       <a href="#contact">CONTACT</a>
     </nav>
-
   </header>
 
 
@@ -322,11 +344,11 @@
         corporate milestones and unforgettable occasions.
       </p>
 
-      <a class="button gold-button" href="#collections">
+      <a class="button primary-button" href="#collections">
         EXPLORE COLLECTION
       </a>
 
-      <a class="button outline-button" href="#corporate">
+      <a class="button secondary-button" href="#corporate">
         CORPORATE ENQUIRY
       </a>
 
@@ -347,8 +369,7 @@
       <div class="card">
         <h3>Festive Gifting</h3>
         <p>
-          Elegant Diwali and festive hampers designed for
-          meaningful celebrations.
+          Elegant festive hampers designed for meaningful celebrations.
         </p>
       </div>
 
@@ -363,16 +384,14 @@
       <div class="card">
         <h3>Dry Fruit Hampers</h3>
         <p>
-          Beautifully presented premium dry fruits in elegant
-          gifting boxes.
+          Beautifully presented premium dry fruits in elegant gifting boxes.
         </p>
       </div>
 
       <div class="card">
         <h3>Luxury Jar Hampers</h3>
         <p>
-          Reusable premium jars presented in sophisticated
-          gifting arrangements.
+          Reusable premium jars presented in sophisticated gifting arrangements.
         </p>
       </div>
 
@@ -407,7 +426,7 @@
       elegant customised gifting experiences for businesses.
     </p>
 
-    <a class="button gold-button" href="#contact">
+    <a class="button primary-button" href="#contact">
       REQUEST A CORPORATE QUOTE
     </a>
 
@@ -460,7 +479,7 @@
       We'd love to help.
     </p>
 
-    <a class="button gold-button" href="mailto:hello@boxandbanner.in">
+    <a class="button primary-button" href="mailto:hello@boxandbanner.in">
       EMAIL US
     </a>
 
