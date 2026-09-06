@@ -7,6 +7,18 @@
   <title>Box & Banner | Unwrap Happiness</title>
 
   <style>
+    :root {
+      --plum: #4A253D;
+      --plum-dark: #351A2C;
+      --champagne: #E7D2AA;
+      --champagne-light: #F3E6CF;
+      --ivory: #FFF9F0;
+      --gold: #C49A52;
+      --gold-dark: #A77C35;
+      --cocoa: #3B2A27;
+      --muted: #74645E;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -19,276 +31,483 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #F3E5C8;
-      color: #4A2B25;
+      background: var(--ivory);
+      color: var(--cocoa);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* HEADER */
+
     header {
-      background: #F6E9CD;
-      padding: 16px 6%;
+      background: rgba(255, 249, 240, 0.96);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 14px 7%;
+      border-bottom: 1px solid rgba(196,154,82,0.45);
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid #C69A4B;
-      box-shadow: 0 2px 12px rgba(75, 48, 35, 0.08);
+      backdrop-filter: blur(10px);
     }
 
-    .logo img {
-      width: 95px;
-      height: auto;
+    .header-logo img {
+      width: 82px;
       display: block;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
     nav a {
-      color: #652D36;
+      color: var(--plum);
       text-decoration: none;
-      margin-left: 24px;
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 1px;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
     }
 
     nav a:hover {
-      color: #B8862D;
+      color: var(--gold-dark);
     }
+
+    .enquire-top {
+      padding: 11px 20px;
+      background: var(--plum);
+      color: white;
+      border-radius: 30px;
+    }
+
+    .enquire-top:hover {
+      color: white;
+      background: var(--plum-dark);
+    }
+
+    /* HERO */
 
     .hero {
       min-height: 88vh;
-      background:
-        radial-gradient(circle at center, #FFF8E8 0%, #F3E5C8 55%, #E5CF9F 100%);
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 70px 20px;
+      padding: 90px 8%;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          110deg,
+          rgba(255,249,240,1) 0%,
+          rgba(255,249,240,0.98) 48%,
+          rgba(231,210,170,0.68) 100%
+        );
+    }
+
+    /* Floral watermark */
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      left: -150px;
+      top: 80px;
+      opacity: 0.12;
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%23A77C35' stroke-width='2'%3E%3Cpath d='M70 420 C130 300 150 210 250 120 C290 85 330 65 390 45'/%3E%3Cpath d='M165 275 C120 265 95 235 90 195 C135 205 165 230 165 275Z'/%3E%3Cpath d='M210 210 C185 165 195 125 230 95 C250 140 248 180 210 210Z'/%3E%3Cpath d='M290 145 C310 105 350 90 390 100 C370 140 335 160 290 145Z'/%3E%3Ccircle cx='255' cy='116' r='18'/%3E%3Cpath d='M255 98 C230 72 225 50 245 30 C265 50 272 73 255 98Z'/%3E%3Cpath d='M273 116 C302 90 330 88 350 110 C325 132 300 138 273 116Z'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+
+    /* Gift-box watermark */
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 4%;
+      bottom: 3%;
+      width: 260px;
+      height: 260px;
+      opacity: 0.07;
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%234A253D' stroke-width='3'%3E%3Crect x='55' y='105' width='150' height='110' rx='4'/%3E%3Crect x='45' y='85' width='170' height='35' rx='4'/%3E%3Cpath d='M130 85 V215'/%3E%3Cpath d='M130 85 C95 55 80 30 103 20 C125 12 133 45 130 85Z'/%3E%3Cpath d='M130 85 C165 55 180 30 157 20 C135 12 127 45 130 85Z'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
     }
 
     .hero-content {
-      max-width: 880px;
+      width: 58%;
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
     }
 
-    .hero-logo {
-      width: 250px;
-      max-width: 70%;
-      margin-bottom: 28px;
+    .eyebrow {
+      color: var(--gold-dark);
+      letter-spacing: 4px;
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
 
     .hero h1 {
-      font-family: Georgia, serif;
-      font-size: 58px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 66px;
+      line-height: 1.08;
+      color: var(--plum);
       font-weight: 500;
-      color: #7A3742;
-      letter-spacing: 4px;
-      margin-bottom: 12px;
+      max-width: 720px;
+      margin-bottom: 20px;
     }
 
-    .hero h2 {
-      font-size: 18px;
+    .tagline {
+      color: var(--gold-dark);
+      font-size: 16px;
       letter-spacing: 6px;
-      font-weight: 500;
-      color: #B8862D;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .hero-line {
+      height: 1px;
+      width: 210px;
+      background: var(--gold);
       margin-bottom: 28px;
     }
 
     .hero p {
-      max-width: 680px;
-      margin: 0 auto 34px;
-      font-size: 19px;
-      color: #5F463D;
+      max-width: 620px;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 34px;
     }
 
-    .button {
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
       display: inline-block;
-      padding: 14px 28px;
-      margin: 6px;
-      border-radius: 4px;
       text-decoration: none;
-      font-weight: bold;
-      letter-spacing: 0.5px;
+      padding: 14px 25px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      font-weight: 700;
       transition: 0.3s;
     }
 
-    .primary-button {
-      background: #6C2C38;
-      color: #FFF8E8;
-      border: 1px solid #6C2C38;
+    .btn-primary {
+      background: var(--plum);
+      color: white;
+      border: 1px solid var(--plum);
     }
 
-    .primary-button:hover {
-      background: #8A4150;
+    .btn-primary:hover {
+      background: var(--plum-dark);
     }
 
-    .secondary-button {
+    .btn-secondary {
       background: transparent;
-      color: #7A3742;
-      border: 1px solid #B8862D;
+      color: var(--plum);
+      border: 1px solid var(--gold);
     }
 
-    .secondary-button:hover {
-      background: #EAD5A7;
+    .btn-secondary:hover {
+      background: var(--champagne-light);
     }
+
+    /* FEATURE STRIP */
+
+    .feature-strip {
+      background: var(--champagne-light);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(196,154,82,0.35);
+      border-bottom: 1px solid rgba(196,154,82,0.35);
+    }
+
+    .feature {
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(196,154,82,0.35);
+    }
+
+    .feature:last-child {
+      border-right: none;
+    }
+
+    .feature-icon {
+      font-size: 26px;
+      color: var(--gold-dark);
+      margin-bottom: 7px;
+    }
+
+    .feature h4 {
+      color: var(--plum);
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    /* STANDARD SECTIONS */
 
     section {
-      padding: 80px 7%;
+      padding: 85px 7%;
     }
 
-    .section-title {
+    .section-heading {
       text-align: center;
       margin-bottom: 50px;
     }
 
-    .section-title span {
-      color: #B8862D;
+    .section-heading span {
+      font-size: 12px;
+      color: var(--gold-dark);
       text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 13px;
-      font-weight: bold;
+      letter-spacing: 4px;
+      font-weight: 700;
     }
 
-    .section-title h2 {
-      font-family: Georgia, serif;
-      font-size: 38px;
-      margin-top: 8px;
+    .section-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--plum);
+      font-size: 42px;
       font-weight: 500;
-      color: #6C2C38;
+      margin-top: 8px;
     }
+
+    /* COLLECTIONS */
 
     .collections {
-      background: #FFF9EE;
+      background: var(--ivory);
+      position: relative;
     }
 
-    .cards {
+    .collection-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .card {
-      background: #F8EBCF;
-      padding: 42px 28px;
-      border: 1px solid #D6B36A;
-      text-align: center;
+    .collection-card {
+      background: white;
+      min-height: 250px;
+      padding: 42px 30px;
+      border: 1px solid rgba(196,154,82,0.35);
+      position: relative;
+      overflow: hidden;
       transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(105, 72, 50, 0.06);
     }
 
-    .card:hover {
+    .collection-card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      right: -20px;
+      bottom: -20px;
+      border: 1px solid rgba(196,154,82,0.24);
+      border-radius: 50%;
+    }
+
+    .collection-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 14px 30px rgba(105, 72, 50, 0.12);
+      box-shadow: 0 16px 35px rgba(74,37,61,0.10);
     }
 
-    .card h3 {
+    .collection-number {
+      color: var(--gold);
       font-family: Georgia, serif;
-      color: #7A3742;
-      font-size: 23px;
-      margin-bottom: 12px;
+      font-size: 17px;
+      margin-bottom: 22px;
     }
 
-    .card p {
-      color: #66534B;
+    .collection-card h3 {
+      color: var(--plum);
+      font-family: Georgia, serif;
+      font-size: 25px;
+      margin-bottom: 13px;
+    }
+
+    .collection-card p {
+      color: var(--muted);
       font-size: 15px;
     }
 
+    /* CORPORATE */
+
     .corporate {
-      background: #6C2C38;
+      position: relative;
+      background: var(--plum);
       color: white;
+      overflow: hidden;
+    }
+
+    .corporate::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      top: -80px;
+      width: 350px;
+      height: 350px;
+      border: 1px solid rgba(231,210,170,0.18);
+      border-radius: 50%;
+    }
+
+    .corporate-inner {
+      max-width: 950px;
+      margin: auto;
       text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .corporate .small {
+      color: var(--champagne);
+      letter-spacing: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
     .corporate h2 {
       font-family: Georgia, serif;
-      color: #F4D99A;
-      font-size: 40px;
+      color: var(--champagne-light);
+      font-size: 44px;
+      font-weight: 500;
       margin-bottom: 18px;
     }
 
     .corporate p {
-      max-width: 760px;
+      color: #EADFE5;
+      max-width: 720px;
       margin: 0 auto 30px;
-      color: #F8EEDB;
       font-size: 17px;
     }
 
-    .corporate .primary-button {
-      background: #D5A448;
-      color: #4B252B;
-      border-color: #D5A448;
+    .corporate .btn-primary {
+      background: var(--champagne);
+      border-color: var(--champagne);
+      color: var(--plum);
     }
 
+    /* WHY US */
+
     .why {
-      background: #F3E5C8;
+      background: var(--champagne-light);
+      position: relative;
     }
 
     .why-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      text-align: center;
+      gap: 28px;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .why-item {
-      padding: 30px 20px;
-      border-top: 1px solid #C69A4B;
+      text-align: center;
+      padding: 25px 18px;
+    }
+
+    .why-symbol {
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: var(--gold-dark);
     }
 
     .why-item h3 {
-      color: #7A3742;
-      margin-bottom: 8px;
+      color: var(--plum);
       font-family: Georgia, serif;
+      margin-bottom: 9px;
+      font-size: 20px;
     }
 
     .why-item p {
-      color: #66534B;
-    }
-
-    .contact {
-      background: #FFF9EE;
-      text-align: center;
-    }
-
-    .contact p {
-      margin-bottom: 24px;
-      color: #5F463D;
-    }
-
-    footer {
-      background: #5B2631;
-      color: #F3DFB6;
-      text-align: center;
-      padding: 28px 20px;
+      color: var(--muted);
       font-size: 14px;
     }
 
-    @media (max-width: 850px) {
+    /* CONTACT */
+
+    .contact {
+      background: var(--ivory);
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-family: Georgia, serif;
+      color: var(--plum);
+      font-size: 40px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--plum-dark);
+      color: var(--champagne-light);
+      padding: 28px 7%;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
       header {
         flex-direction: column;
-        gap: 14px;
+        gap: 15px;
       }
 
       nav {
-        text-align: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
-      nav a {
-        margin: 0 7px;
-        font-size: 12px;
+      .enquire-top {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 90px 8%;
+      }
+
+      .hero-content {
+        width: 100%;
       }
 
       .hero h1 {
-        font-size: 38px;
+        font-size: 48px;
       }
 
-      .hero h2 {
-        letter-spacing: 3px;
-        font-size: 15px;
+      .feature-strip {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .cards {
-        grid-template-columns: 1fr;
+      .collection-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
       .why-grid {
@@ -296,22 +515,46 @@
       }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .tagline {
+        font-size: 13px;
+        letter-spacing: 4px;
+      }
+
+      .feature-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+      }
+
       .why-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-logo {
-        width: 180px;
+      .section-heading h2 {
+        font-size: 34px;
       }
     }
+
   </style>
 </head>
 
 <body>
 
   <header>
-    <div class="logo">
+
+    <div class="header-logo">
       <img src="BB_Logo_Transparent.png" alt="Box & Banner Logo">
     </div>
 
@@ -321,7 +564,9 @@
       <a href="#corporate">CORPORATE</a>
       <a href="#about">ABOUT</a>
       <a href="#contact">CONTACT</a>
+      <a class="enquire-top" href="#contact">ENQUIRE NOW</a>
     </nav>
+
   </header>
 
 
@@ -329,85 +574,128 @@
 
     <div class="hero-content">
 
-      <img
-        class="hero-logo"
-        src="BB_Logo_Transparent.png"
-        alt="Box & Banner"
-      >
+      <div class="eyebrow">
+        More Than Gifts. Meaningful Connections.
+      </div>
 
-      <h1>BOX & BANNER</h1>
+      <h1>
+        Thoughtful Gifts<br>
+        for Every Occasion
+      </h1>
 
-      <h2>UNWRAP HAPPINESS</h2>
+      <div class="hero-line"></div>
+
+      <div class="tagline">
+        UNWRAP HAPPINESS
+      </div>
 
       <p>
-        Thoughtfully curated premium gifts for celebrations,
-        corporate milestones and unforgettable occasions.
+        Premium gifting solutions thoughtfully curated for celebrations,
+        corporate milestones and life's special moments.
       </p>
 
-      <a class="button primary-button" href="#collections">
-        EXPLORE COLLECTION
-      </a>
+      <div class="buttons">
 
-      <a class="button secondary-button" href="#corporate">
-        CORPORATE ENQUIRY
-      </a>
+        <a class="btn btn-primary" href="#collections">
+          EXPLORE COLLECTIONS →
+        </a>
+
+        <a class="btn btn-secondary" href="#corporate">
+          CORPORATE ENQUIRY →
+        </a>
+
+      </div>
 
     </div>
 
   </section>
 
 
+  <div class="feature-strip">
+
+    <div class="feature">
+      <div class="feature-icon">◇</div>
+      <h4>Premium Quality</h4>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">✦</div>
+      <h4>Elegant Packaging</h4>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">◈</div>
+      <h4>Customisation</h4>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">♡</div>
+      <h4>Gifts for Every Occasion</h4>
+    </div>
+
+  </div>
+
+
   <section class="collections" id="collections">
 
-    <div class="section-title">
+    <div class="section-heading">
       <span>Our Collections</span>
       <h2>Gifting Made Memorable</h2>
     </div>
 
-    <div class="cards">
+    <div class="collection-grid">
 
-      <div class="card">
+      <div class="collection-card">
+        <div class="collection-number">01</div>
         <h3>Festive Gifting</h3>
         <p>
-          Elegant festive hampers designed for meaningful celebrations.
+          Thoughtfully curated festive hampers designed to make
+          celebrations more memorable.
         </p>
       </div>
 
-      <div class="card">
+      <div class="collection-card">
+        <div class="collection-number">02</div>
         <h3>Corporate Gifting</h3>
         <p>
-          Premium customised gifting solutions for employees,
+          Elegant customised gifting solutions for employees,
           clients and business partners.
         </p>
       </div>
 
-      <div class="card">
+      <div class="collection-card">
+        <div class="collection-number">03</div>
         <h3>Dry Fruit Hampers</h3>
         <p>
-          Beautifully presented premium dry fruits in elegant gifting boxes.
+          Premium dry fruits presented in sophisticated
+          and beautifully crafted boxes.
         </p>
       </div>
 
-      <div class="card">
+      <div class="collection-card">
+        <div class="collection-number">04</div>
         <h3>Luxury Jar Hampers</h3>
         <p>
-          Reusable premium jars presented in sophisticated gifting arrangements.
+          Reusable premium jars curated with a refined
+          touch of elegance.
         </p>
       </div>
 
-      <div class="card">
+      <div class="collection-card">
+        <div class="collection-number">05</div>
         <h3>Return Gifts</h3>
         <p>
-          Thoughtful return gifting options for weddings,
-          birthdays and celebrations.
+          Elegant gifting choices for weddings, birthdays
+          and special celebrations.
         </p>
       </div>
 
-      <div class="card">
+      <div class="collection-card">
+        <div class="collection-number">06</div>
         <h3>Occasion Gifting</h3>
         <p>
-          Curated gifts for housewarming, baby showers,
-          poojas and special moments.
+          Thoughtful gifts for housewarmings, baby showers,
+          poojas and life's meaningful moments.
         </p>
       </div>
 
@@ -418,48 +706,66 @@
 
   <section class="corporate" id="corporate">
 
-    <h2>Corporate Gifting, Thoughtfully Curated</h2>
+    <div class="corporate-inner">
 
-    <p>
-      From employee appreciation and festive gifting to client
-      engagement and milestone celebrations, Box & Banner creates
-      elegant customised gifting experiences for businesses.
-    </p>
+      <div class="small">Corporate Gifting</div>
 
-    <a class="button primary-button" href="#contact">
-      REQUEST A CORPORATE QUOTE
-    </a>
+      <h2>Thoughtfully Curated for Every Relationship</h2>
+
+      <p>
+        Strengthen employee, client and business relationships with
+        beautifully curated gifting solutions personalised for your brand,
+        occasion and budget.
+      </p>
+
+      <a class="btn btn-primary" href="#contact">
+        REQUEST A CORPORATE QUOTE →
+      </a>
+
+    </div>
 
   </section>
 
 
   <section class="why" id="about">
 
-    <div class="section-title">
+    <div class="section-heading">
       <span>Why Box & Banner</span>
-      <h2>Designed to Delight</h2>
+      <h2>The Art of Thoughtful Gifting</h2>
     </div>
 
     <div class="why-grid">
 
       <div class="why-item">
+        <div class="why-symbol">◇</div>
         <h3>Premium Quality</h3>
-        <p>Carefully selected products and elegant presentation.</p>
+        <p>
+          Carefully selected products with attention to every detail.
+        </p>
       </div>
 
       <div class="why-item">
+        <div class="why-symbol">✦</div>
         <h3>Customisation</h3>
-        <p>Branding and gifting options tailored to your requirements.</p>
+        <p>
+          Thoughtfully tailored to your brand, occasion and requirement.
+        </p>
       </div>
 
       <div class="why-item">
-        <h3>Bulk Gifting</h3>
-        <p>Solutions designed for corporate and large-volume orders.</p>
+        <div class="why-symbol">□</div>
+        <h3>Elegant Presentation</h3>
+        <p>
+          Beautiful packaging designed to create a lasting impression.
+        </p>
       </div>
 
       <div class="why-item">
-        <h3>Thoughtful Curation</h3>
-        <p>Every hamper is designed to create a memorable experience.</p>
+        <div class="why-symbol">♡</div>
+        <h3>Memorable Experiences</h3>
+        <p>
+          Gifts designed to create joy and strengthen connections.
+        </p>
       </div>
 
     </div>
@@ -469,25 +775,22 @@
 
   <section class="contact" id="contact">
 
-    <div class="section-title">
-      <span>Get In Touch</span>
-      <h2>Let's Create Something Special</h2>
-    </div>
+    <h2>Let's Create Something Special</h2>
 
     <p>
-      Looking for customised gifting, corporate hampers or bulk orders?
-      We'd love to help.
+      Get in touch for customised gifting, corporate requirements
+      or bulk orders.
     </p>
 
-    <a class="button primary-button" href="mailto:hello@boxandbanner.in">
-      EMAIL US
+    <a class="btn btn-primary" href="mailto:hello@boxandbanner.in">
+      CONTACT US →
     </a>
 
   </section>
 
 
   <footer>
-    © 2026 Box & Banner. All Rights Reserved. | Unwrap Happiness
+    © 2026 Box & Banner. All Rights Reserved. &nbsp; | &nbsp; Unwrap Happiness
   </footer>
 
 </body>
