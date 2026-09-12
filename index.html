@@ -568,42 +568,89 @@
 .events {
     background: #F8F3EB;
     text-align: center;
-    padding: 90px 40px;
+    padding: 85px 7%;
+    overflow: hidden;
 }
 
 .events .small {
-    color: var(--gold);
+    color: var(--gold-dark);
+    font-size: 12px;
+    font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 8px;
 }
 
 .events h2 {
     color: var(--plum);
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 42px;
-    margin-bottom: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.events p {
+.events-intro {
     color: #5F5055;
     font-size: 18px;
-    margin-bottom: 30px;
+    margin: 0 auto 34px;
 }
 
-.event-types {
+.event-grid {
+    display: flex;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    overflow-x: auto;
+    scroll-behavior: auto;
+    scrollbar-width: none;
+    padding: 8px 0 24px;
+    text-align: left;
+}
+
+.event-grid::-webkit-scrollbar { display: none; }
+
+.event-card {
+    background: #F7EBD9;
+    flex: 0 0 330px;
+    padding: 16px;
+    border: 1px solid rgba(196,154,82,0.35);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(74,37,61,0.10);
+}
+
+.event-card img {
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+
+.event-card h3 {
     color: var(--plum);
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 2;
-    max-width: 900px;
-    margin: 0 auto 20px;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.event-card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0;
 }
 
 .event-services {
     color: #8A6F58;
-    font-size: 16px;
-    letter-spacing: 1px;
-    margin-bottom: 35px;
+    font-size: 15px;
+    letter-spacing: 0.7px;
+    margin: 0 auto 28px;
 }
     /* CORPORATE */
 
@@ -1095,32 +1142,45 @@
 
 <section class="events" id="events">
 
-    <div class="small">EVENTS & CELEBRATIONS</div>
-
+    <div class="small">EVENTS &amp; CELEBRATIONS</div>
     <h2>Creating Moments. Cherishing Memories.</h2>
+    <p class="events-intro">Beautiful Celebrations, Thoughtfully Planned for Every Budget.</p>
 
-    <p>
-        From intimate celebrations to large-scale events,
-        we bring every occasion to life.
-    </p>
-
-    <div class="event-types">
-        Corporate Events &nbsp; • &nbsp;
-        Kids' Celebrations &nbsp; • &nbsp;
-        School Events &nbsp; • &nbsp;
-        Weddings &nbsp; • &nbsp;
-        Festive Celebrations &nbsp; • &nbsp;
-        Private Events
+    <div class="event-grid">
+      <article class="event-card">
+        <img src="event-corporate.jpg" alt="Simple and professional corporate event setup">
+        <h3>Corporate Events</h3>
+        <p>Professional gatherings, team celebrations, launches and recognition events.</p>
+      </article>
+      <article class="event-card">
+        <img src="event-wedding.jpg" alt="Natural intimate wedding and engagement decor">
+        <h3>Weddings &amp; Engagements</h3>
+        <p>Warm, personal celebrations designed around your style and budget.</p>
+      </article>
+      <article class="event-card">
+        <img src="event-birthday.jpg" alt="Simple children's birthday celebration">
+        <h3>Birthdays &amp; Kids’ Parties</h3>
+        <p>Cheerful celebrations with thoughtful décor, activities and return gifts.</p>
+      </article>
+      <article class="event-card">
+        <img src="event-school.jpg" alt="Neatly arranged school annual day event">
+        <h3>School Events</h3>
+        <p>Annual days, graduations, festive programmes and school celebrations.</p>
+      </article>
+      <article class="event-card">
+        <img src="event-baby-housewarming.jpg" alt="Intimate baby shower and housewarming celebration">
+        <h3>Baby Showers &amp; Housewarming</h3>
+        <p>Simple, welcoming gatherings for life’s meaningful new beginnings.</p>
+      </article>
+      <article class="event-card">
+        <img src="event-festive.jpg" alt="Affordable festive celebration in an Indian home">
+        <h3>Festive Celebrations</h3>
+        <p>Authentic festive décor and coordination for homes, offices and communities.</p>
+      </article>
     </div>
 
-    <div class="event-services">
-        Décor &nbsp; • &nbsp; Photography &nbsp; • &nbsp;
-        Return Gifts &nbsp; • &nbsp; Event Coordination
-    </div>
-
-    <a class="btn btn-primary" href="#contact">
-        CREATE A CELEBRATION →
-    </a>
+    <div class="event-services">Décor &nbsp; • &nbsp; Photography &nbsp; • &nbsp; Return Gifts &nbsp; • &nbsp; Event Coordination</div>
+    <a class="btn btn-primary" href="#contact">PLAN YOUR EVENT →</a>
 
 </section>
   <section class="corporate" id="corporate">
@@ -1275,6 +1335,33 @@
       }
 
       window.requestAnimationFrame(moveGiftingCollections);
+    }
+  </script>
+
+  <script>
+    const eventsTrack = document.querySelector('.event-grid');
+    if (eventsTrack && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const originalEventCards = Array.from(eventsTrack.children);
+      originalEventCards.forEach(function (card) {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        eventsTrack.appendChild(clone);
+      });
+      let eventsPaused = false;
+      eventsTrack.addEventListener('mouseenter', function () { eventsPaused = true; });
+      eventsTrack.addEventListener('mouseleave', function () { eventsPaused = false; });
+      eventsTrack.addEventListener('touchstart', function () { eventsPaused = true; }, { passive: true });
+      eventsTrack.addEventListener('touchend', function () {
+        window.setTimeout(function () { eventsPaused = false; }, 1800);
+      }, { passive: true });
+      function moveEventCollections() {
+        if (!eventsPaused) {
+          eventsTrack.scrollLeft += 0.4;
+          if (eventsTrack.scrollLeft >= eventsTrack.scrollWidth / 2) eventsTrack.scrollLeft = 0;
+        }
+        window.requestAnimationFrame(moveEventCollections);
+      }
+      window.requestAnimationFrame(moveEventCollections);
     }
   </script>
 
