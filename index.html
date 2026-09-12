@@ -75,6 +75,61 @@
       color: var(--gold-dark);
     }
 
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .dropdown-toggle::after {
+      content: "⌄";
+      font-size: 13px;
+      transition: transform 0.25s ease;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 230px;
+      padding: 10px;
+      background: rgba(255,249,240,0.99);
+      border: 1px solid rgba(196,154,82,0.40);
+      box-shadow: 0 16px 35px rgba(53,26,44,0.14);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s ease;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 11px 13px;
+      white-space: nowrap;
+      font-size: 12px;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--champagne-light);
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-dropdown:hover .dropdown-toggle::after,
+    .nav-dropdown:focus-within .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
     .enquire-top {
       padding: 11px 20px;
       background: var(--plum);
@@ -641,6 +696,16 @@
         justify-content: center;
       }
 
+      .dropdown-menu {
+        left: 0;
+        transform: translateY(8px);
+      }
+
+      .nav-dropdown:hover .dropdown-menu,
+      .nav-dropdown:focus-within .dropdown-menu {
+        transform: translateY(0);
+      }
+
       .enquire-top {
         display: none;
       }
@@ -732,9 +797,14 @@
 
     <nav>
       <a href="#home">HOME</a>
-      <a href="#collections">COLLECTIONS</a>
-      <a href="#corporate">CORPORATE</a>
-      <a href="#events">EVENTS</a>
+      <div class="nav-dropdown">
+        <a class="dropdown-toggle" href="#services" aria-haspopup="true">WHAT WE DO</a>
+        <div class="dropdown-menu">
+          <a href="#collections">GIFTING COLLECTIONS</a>
+          <a href="#corporate">CORPORATE GIFTING</a>
+          <a href="#events">EVENTS &amp; CELEBRATIONS</a>
+        </div>
+      </div>
       <a href="#about">ABOUT</a>
       <a href="#contact">CONTACT</a>
       <a class="enquire-top" href="#contact">ENQUIRE NOW</a>
