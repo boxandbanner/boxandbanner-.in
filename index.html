@@ -494,9 +494,10 @@
 
     /* COLLECTIONS */
 
-    .collections {
+     .collections {
       background: var(--ivory);
       position: relative;
+      padding-bottom: 45px;
     }
 
     .collection-grid {
@@ -568,7 +569,7 @@
 .events {
     background: #F8F3EB;
     text-align: center;
-    padding: 85px 7%;
+    padding: 45px 7% 85px;
     overflow: hidden;
 }
 
@@ -1153,22 +1154,22 @@
         <p>Professional gatherings, team celebrations, launches and recognition events.</p>
       </article>
       <article class="event-card">
-        <img src="event-wedding.jpg" alt="Natural intimate wedding and engagement decor">
+        <img src="event-wedding-v2.jpg" alt="Natural intimate wedding and engagement decor">
         <h3>Weddings &amp; Engagements</h3>
         <p>Warm, personal celebrations designed around your style and budget.</p>
       </article>
       <article class="event-card">
-        <img src="event-birthday.jpg" alt="Simple children's birthday celebration">
+        <img src="event-birthday-v2.jpg" alt="Simple children's birthday celebration">
         <h3>Birthdays &amp; Kids’ Parties</h3>
         <p>Cheerful celebrations with thoughtful décor, activities and return gifts.</p>
       </article>
       <article class="event-card">
-        <img src="event-school.jpg" alt="Neatly arranged school annual day event">
+        <img src="event-school-v2.jpg" alt="Neatly arranged school annual day event">
         <h3>School Events</h3>
         <p>Annual days, graduations, festive programmes and school celebrations.</p>
       </article>
       <article class="event-card">
-        <img src="event-baby-housewarming.jpg" alt="Intimate baby shower and housewarming celebration">
+        <img src="event-baby-housewarming-v2.jpg" alt="Intimate baby shower and housewarming celebration">
         <h3>Baby Showers &amp; Housewarming</h3>
         <p>Simple, welcoming gatherings for life’s meaningful new beginnings.</p>
       </article>
@@ -1339,30 +1340,43 @@
   </script>
 
   <script>
-    const eventsTrack = document.querySelector('.event-grid');
-    if (eventsTrack && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    (function () {
+      const eventsTrack = document.querySelector('.event-grid');
+      if (!eventsTrack || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
       const originalEventCards = Array.from(eventsTrack.children);
       originalEventCards.forEach(function (card) {
         const clone = card.cloneNode(true);
         clone.setAttribute('aria-hidden', 'true');
         eventsTrack.appendChild(clone);
       });
-      let eventsPaused = false;
-      eventsTrack.addEventListener('mouseenter', function () { eventsPaused = true; });
-      eventsTrack.addEventListener('mouseleave', function () { eventsPaused = false; });
-      eventsTrack.addEventListener('touchstart', function () { eventsPaused = true; }, { passive: true });
-      eventsTrack.addEventListener('touchend', function () {
-        window.setTimeout(function () { eventsPaused = false; }, 1800);
-      }, { passive: true });
-      function moveEventCollections() {
-        if (!eventsPaused) {
-          eventsTrack.scrollLeft += 0.4;
-          if (eventsTrack.scrollLeft >= eventsTrack.scrollWidth / 2) eventsTrack.scrollLeft = 0;
-        }
-        window.requestAnimationFrame(moveEventCollections);
+
+      let paused = false;
+      let restartTimer;
+
+      function pauseSlider() {
+        paused = true;
+        window.clearTimeout(restartTimer);
       }
-      window.requestAnimationFrame(moveEventCollections);
-    }
+
+      function resumeSlider() {
+        window.clearTimeout(restartTimer);
+        restartTimer = window.setTimeout(function () { paused = false; }, 1200);
+      }
+
+      eventsTrack.addEventListener('mouseenter', pauseSlider);
+      eventsTrack.addEventListener('mouseleave', function () { paused = false; });
+      eventsTrack.addEventListener('touchstart', pauseSlider, { passive: true });
+      eventsTrack.addEventListener('touchend', resumeSlider, { passive: true });
+
+      window.setInterval(function () {
+        if (paused) return;
+        eventsTrack.scrollLeft += 1;
+        if (eventsTrack.scrollLeft >= eventsTrack.scrollWidth / 2) {
+          eventsTrack.scrollLeft = 0;
+        }
+      }, 22);
+    }());
   </script>
 
 </body>
