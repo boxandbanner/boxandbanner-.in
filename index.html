@@ -97,25 +97,50 @@
       top: calc(100% + 14px);
       left: 50%;
       transform: translateX(-50%) translateY(8px);
-      min-width: 230px;
-      padding: 10px;
+      width: min(920px, 92vw);
+      padding: 24px;
       background: rgba(255,249,240,0.99);
       border: 1px solid rgba(196,154,82,0.40);
-      box-shadow: 0 16px 35px rgba(53,26,44,0.14);
+      box-shadow: 0 18px 42px rgba(53,26,44,0.16);
       opacity: 0;
       visibility: hidden;
       transition: 0.25s ease;
     }
 
-    .dropdown-menu a {
-      display: block;
-      padding: 11px 13px;
-      white-space: nowrap;
-      font-size: 12px;
+    .dropdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
     }
 
-    .dropdown-menu a:hover {
-      background: var(--champagne-light);
+    .dropdown-column {
+      padding: 8px 18px;
+      border-right: 1px solid rgba(196,154,82,0.32);
+    }
+
+    .dropdown-column:last-child {
+      border-right: none;
+    }
+
+    .dropdown-column h4 {
+      color: var(--plum);
+      font-family: Georgia, serif;
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .dropdown-column a {
+      display: block;
+      padding: 7px 0;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.7px;
+      line-height: 1.35;
+    }
+
+    .dropdown-column a:hover {
+      color: var(--gold-dark);
+      padding-left: 5px;
     }
 
     .nav-dropdown:hover .dropdown-menu,
@@ -697,6 +722,19 @@
       }
 
       .dropdown-menu {
+        width: min(760px, 94vw);
+      }
+
+      .dropdown-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .dropdown-column {
+        padding: 8px 10px;
+      }
+
+      .dropdown-menu {
         left: 0;
         transform: translateY(8px);
       }
@@ -740,6 +778,27 @@
 
       nav a {
         font-size: 11px;
+      }
+
+      .dropdown-menu {
+        position: fixed;
+        top: 132px;
+        max-height: 72vh;
+        overflow-y: auto;
+      }
+
+      .dropdown-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dropdown-column {
+        border-right: none;
+        border-bottom: 1px solid rgba(196,154,82,0.32);
+        padding: 10px 6px 14px;
+      }
+
+      .dropdown-column:last-child {
+        border-bottom: none;
       }
 
       .hero h1 {
@@ -797,14 +856,51 @@
 
     <nav>
       <a href="#home">HOME</a>
+
       <div class="nav-dropdown">
         <a class="dropdown-toggle" href="#services" aria-haspopup="true">WHAT WE DO</a>
+
         <div class="dropdown-menu">
-          <a href="#collections">GIFTING COLLECTIONS</a>
-          <a href="#corporate">CORPORATE GIFTING</a>
-          <a href="#events">EVENTS &amp; CELEBRATIONS</a>
+          <div class="dropdown-grid">
+
+            <div class="dropdown-column">
+              <h4>Personal Gifting</h4>
+              <a href="#collections">Weddings</a>
+              <a href="#collections">Birthdays</a>
+              <a href="#collections">Housewarming</a>
+              <a href="#collections">Engagements</a>
+              <a href="#collections">Baby Showers</a>
+              <a href="#collections">Pooja &amp; Festive Gifting</a>
+              <a href="#collections">Return Gifts</a>
+            </div>
+
+            <div class="dropdown-column">
+              <h4>Corporate Gifting</h4>
+              <a href="#corporate">New Joiner Kits</a>
+              <a href="#corporate">Festive Gifts</a>
+              <a href="#corporate">Employee Birthday Gifts &amp; Cakes</a>
+              <a href="#corporate">Work Anniversary Gifts</a>
+              <a href="#corporate">Rewards &amp; Recognition</a>
+              <a href="#corporate">Mementoes, Trophies &amp; Corporate Awards</a>
+              <a href="#corporate">Client &amp; Vendor Gifting</a>
+              <a href="#corporate">Conference &amp; Event Kits</a>
+            </div>
+
+            <div class="dropdown-column">
+              <h4>Events &amp; Celebrations</h4>
+              <a href="#events">Corporate Events</a>
+              <a href="#events">Weddings &amp; Engagements</a>
+              <a href="#events">Birthdays &amp; Kids’ Parties</a>
+              <a href="#events">School Events</a>
+              <a href="#events">Baby Showers &amp; Housewarming</a>
+              <a href="#events">Festive Celebrations</a>
+              <a href="#events">Décor, Photography &amp; Coordination</a>
+            </div>
+
+          </div>
         </div>
       </div>
+
       <a href="#about">ABOUT</a>
       <a href="#contact">CONTACT</a>
       <a class="enquire-top" href="#contact">ENQUIRE NOW</a>
