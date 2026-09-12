@@ -371,16 +371,14 @@
     .service-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      max-width: 1200px;
+      gap: 28px;
+      max-width: 1120px;
       margin: auto;
     }
 
     .service-card {
-      min-height: 300px;
-      display: grid;
-      grid-template-columns: 42% 58%;
-      align-items: stretch;
+      display: flex;
+      flex-direction: column;
       background: white;
       border: 1px solid rgba(196,154,82,0.38);
       box-shadow: 0 10px 26px rgba(74,37,61,0.08);
@@ -395,25 +393,29 @@
 
     .service-card img {
       width: 100%;
-      height: 100%;
-      min-height: 300px;
+      height: 270px;
       object-fit: cover;
       object-position: center;
       display: block;
+      background: var(--champagne-light);
     }
 
     .service-card:first-child img {
       object-fit: contain;
-      padding: 18px;
-      background: var(--champagne-light);
+      padding: 20px;
+    }
+
+    .service-card:nth-child(2) img {
+      object-position: right center;
     }
 
     .service-content {
+      flex: 1;
       color: var(--cocoa);
-      padding: 30px 26px;
+      padding: 28px 30px 30px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      align-items: flex-start;
     }
 
     .service-content span {
@@ -427,8 +429,8 @@
     .service-content h3 {
       font-family: Georgia, serif;
       color: var(--plum);
-      font-size: 27px;
-      line-height: 1.2;
+      font-size: 29px;
+      line-height: 1.18;
       font-weight: 500;
       margin: 8px 0 12px;
     }
@@ -440,7 +442,7 @@
     }
 
     .service-content .btn {
-      align-self: flex-start;
+      margin-top: auto;
       color: white;
       background: var(--plum);
       border: 1px solid var(--plum);
@@ -827,12 +829,10 @@
 
       .service-card {
         min-height: 0;
-        grid-template-columns: 1fr;
       }
 
       .service-card img {
         height: 220px;
-        min-height: 220px;
       }
 
       .service-content {
@@ -966,16 +966,16 @@
 
     <div class="section-heading">
       <span>What We Do</span>
-      <h2>Gifting & Celebrations, Beautifully Curated</h2>
+      <h2>Thoughtful Gifts. Memorable Celebrations.</h2>
     </div>
 
     <div class="service-grid">
 
       <article class="service-card">
-        <img src="premium4.png" alt="Premium hamper by Box & Banner">
+        <img src="dryfruit.png.png" alt="Premium dry fruit hamper">
         <div class="service-content">
-          <span>Thoughtful Gifting</span>
-          <h3>Gifts That Leave an Impression</h3>
+          <span>Gifting</span>
+          <h3>More Than Gifts. Meaningful Connections.</h3>
           <p>Premium hampers, corporate gifting, festive collections and personalised return gifts for every meaningful occasion.</p>
           <a class="btn" href="#collections">EXPLORE GIFTING →</a>
         </div>
