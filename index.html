@@ -282,6 +282,85 @@
       text-transform: uppercase;
     }
 
+    /* WHAT WE DO */
+
+    .what-we-do {
+      background: #fffdf8;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      border: 1px solid rgba(196,154,82,0.38);
+      box-shadow: 0 16px 35px rgba(74,37,61,0.10);
+    }
+
+    .service-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(53,26,44,0.95) 0%, rgba(53,26,44,0.54) 48%, rgba(53,26,44,0.08) 100%);
+    }
+
+    .service-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .service-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      padding: 38px;
+      max-width: 570px;
+    }
+
+    .service-content span {
+      color: var(--champagne);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .service-content h3 {
+      font-family: Georgia, serif;
+      color: white;
+      font-size: 34px;
+      font-weight: 500;
+      margin: 8px 0 12px;
+    }
+
+    .service-content p {
+      color: #f5ebdf;
+      margin-bottom: 22px;
+    }
+
+    .service-content .btn {
+      color: var(--plum);
+      background: var(--champagne);
+      border: 1px solid var(--champagne);
+    }
+
     /* STANDARD SECTIONS */
 
     section {
@@ -611,6 +690,22 @@
         grid-template-columns: 1fr;
       }
 
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 380px;
+      }
+
+      .service-content {
+        padding: 28px;
+      }
+
+      .service-content h3 {
+        font-size: 28px;
+      }
+
       .collection-grid {
         grid-template-columns: 1fr;
       }
@@ -686,6 +781,40 @@
     </div>
 
   </div>
+
+
+  <section class="what-we-do" id="services">
+
+    <div class="section-heading">
+      <span>What We Do</span>
+      <h2>Gifting & Celebrations, Beautifully Curated</h2>
+    </div>
+
+    <div class="service-grid">
+
+      <article class="service-card">
+        <img src="corporate-gifting.png.png" alt="Premium gifting by Box & Banner">
+        <div class="service-content">
+          <span>Thoughtful Gifting</span>
+          <h3>Gifts That Leave an Impression</h3>
+          <p>Premium hampers, corporate gifting, festive collections and personalised return gifts for every meaningful occasion.</p>
+          <a class="btn" href="#collections">EXPLORE GIFTING →</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="hero-events.png" alt="Events and celebrations by Box & Banner">
+        <div class="service-content">
+          <span>Events & Celebrations</span>
+          <h3>Creating Moments. Cherishing Memories.</h3>
+          <p>End-to-end event experiences for corporate gatherings, children’s celebrations, schools, weddings and festive occasions.</p>
+          <a class="btn" href="#events">EXPLORE EVENTS →</a>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
 
 
   <section class="collections" id="collections">
