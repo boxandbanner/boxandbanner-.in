@@ -500,16 +500,24 @@
     }
 
     .collection-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
       gap: 24px;
       max-width: 1200px;
       margin: auto;
+      overflow-x: auto;
+      scroll-behavior: auto;
+      scrollbar-width: none;
+      padding: 8px 0 24px;
+    }
+
+    .collection-grid::-webkit-scrollbar {
+      display: none;
     }
 
     .collection-card {
       background: white;
       min-height: 250px;
+      flex: 0 0 360px;
       padding: 42px 30px;
       border: 1px solid rgba(196,154,82,0.35);
       position: relative;
@@ -1084,6 +1092,16 @@
         </p>
       </div>
 
+      <div class="collection-card">
+        <div class="collection-number">07</div>
+        <img src="bb-awards-mementoes-diaries.jpg" alt="B&B mementoes, trophies, awards and executive diaries" class="collection-image">
+        <h3>Awards &amp; Executive Gifting</h3>
+        <p>
+          Customised mementoes, trophies, recognition awards,
+          premium diaries and executive gifting.
+        </p>
+      </div>
+
     </div>
 
   </section>
@@ -1237,6 +1255,39 @@
           dropdownToggle.blur();
         }
       });
+    }
+  </script>
+
+  <script>
+    const giftingTrack = document.querySelector('.collection-grid');
+
+    if (giftingTrack && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const originalCards = Array.from(giftingTrack.children);
+      originalCards.forEach(function (card) {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        giftingTrack.appendChild(clone);
+      });
+
+      let sliderPaused = false;
+      giftingTrack.addEventListener('mouseenter', function () { sliderPaused = true; });
+      giftingTrack.addEventListener('mouseleave', function () { sliderPaused = false; });
+      giftingTrack.addEventListener('touchstart', function () { sliderPaused = true; }, { passive: true });
+      giftingTrack.addEventListener('touchend', function () {
+        window.setTimeout(function () { sliderPaused = false; }, 1800);
+      }, { passive: true });
+
+      function moveGiftingCollections() {
+        if (!sliderPaused) {
+          giftingTrack.scrollLeft += 0.45;
+          if (giftingTrack.scrollLeft >= giftingTrack.scrollWidth / 2) {
+            giftingTrack.scrollLeft = 0;
+          }
+        }
+        window.requestAnimationFrame(moveGiftingCollections);
+      }
+
+      window.requestAnimationFrame(moveGiftingCollections);
     }
   </script>
 
