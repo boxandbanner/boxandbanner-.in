@@ -671,7 +671,7 @@
       height: 100%;
       z-index: 1;
       pointer-events: none;
-      opacity: .82;
+      opacity: .96;
     }
 
     .corporate-inner {
@@ -1188,42 +1188,27 @@
   <section class="corporate" id="corporate">
     <svg class="corporate-ribbon" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
       <defs>
-        <linearGradient id="bbGoldWave" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#A97728"/>
-          <stop offset="18%" stop-color="#E8C56D"/>
-          <stop offset="42%" stop-color="#C4933C"/>
-          <stop offset="67%" stop-color="#F0D58A"/>
-          <stop offset="100%" stop-color="#A87527"/>
+        <linearGradient id="bbGoldMain" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#A9782D"/>
+          <stop offset="28%" stop-color="#F0CF78"/>
+          <stop offset="53%" stop-color="#B78131"/>
+          <stop offset="76%" stop-color="#F7DC88"/>
+          <stop offset="100%" stop-color="#A56F24"/>
         </linearGradient>
-        <linearGradient id="bbGoldDepth" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#F8E6A8" stop-opacity=".70"/>
-          <stop offset="45%" stop-color="#D5A94E" stop-opacity=".12"/>
-          <stop offset="100%" stop-color="#7F5519" stop-opacity=".55"/>
-        </linearGradient>
+        <filter id="bbGlow" x="-20%" y="-40%" width="140%" height="180%">
+          <feGaussianBlur stdDeviation="7"/>
+        </filter>
       </defs>
-      <path d="M-70 255
-               C120 215 245 205 390 232
-               C555 263 675 275 820 242
-               C980 205 1115 198 1270 226
-               C1350 240 1425 244 1510 224
-               L1510 306
-               C1415 326 1335 320 1255 307
-               C1100 282 980 288 825 320
-               C665 353 530 338 380 308
-               C235 279 105 288 -70 330 Z"
-            fill="url(#bbGoldWave)"/>
-      <path d="M-70 260
-               C120 220 245 210 390 237
-               C555 268 675 280 820 247
-               C980 210 1115 203 1270 231
-               C1350 245 1425 249 1510 229"
-            fill="none" stroke="#FBE9AF" stroke-opacity=".52" stroke-width="5"/>
-      <path d="M-70 316
-               C105 274 235 266 380 295
-               C530 325 665 340 825 307
-               C980 275 1100 269 1255 294
-               C1335 307 1415 313 1510 293"
-            fill="none" stroke="url(#bbGoldDepth)" stroke-width="9" opacity=".65"/>
+      <path d="M-90 128 C180 120 300 180 470 244 C665 317 830 325 1010 294 C1195 262 1325 208 1530 115"
+            fill="none" stroke="#E8B94E" stroke-opacity=".20" stroke-width="34" filter="url(#bbGlow)"/>
+      <path d="M-90 126 C175 118 300 178 470 242 C665 315 830 323 1010 292 C1195 260 1325 206 1530 113"
+            fill="none" stroke="url(#bbGoldMain)" stroke-width="46" stroke-linecap="round"/>
+      <path d="M-90 111 C175 103 300 163 470 227 C665 300 830 308 1010 277 C1195 245 1325 191 1530 98"
+            fill="none" stroke="#FFE6A0" stroke-opacity=".68" stroke-width="3"/>
+      <path d="M-80 232 C160 112 330 122 510 226 C695 333 900 352 1085 300 C1260 251 1365 207 1525 174"
+            fill="none" stroke="url(#bbGoldMain)" stroke-width="11" stroke-linecap="round" opacity=".92"/>
+      <path d="M-80 224 C160 104 330 114 510 218 C695 325 900 344 1085 292 C1260 243 1365 199 1525 166"
+            fill="none" stroke="#FFE8A5" stroke-opacity=".65" stroke-width="2"/>
     </svg>
 
     <div class="corporate-inner">
