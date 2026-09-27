@@ -659,43 +659,82 @@
 
     .corporate {
       position: relative;
-      background: var(--plum);
-      color: white;
       overflow: hidden;
+      padding: 92px 7%;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(231,210,170,.12), transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(196,154,82,.14), transparent 30%),
+        linear-gradient(135deg, #351A2C 0%, #4A253D 52%, #351A2C 100%);
+      color: white;
+      border-top: 1px solid rgba(231,210,170,.55);
+      border-bottom: 1px solid rgba(231,210,170,.55);
     }
 
-    .corporate-ribbon {
+    .corporate::before,
+    .corporate::after {
+      content: "";
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
+      width: 190px;
+      height: 190px;
       pointer-events: none;
-      opacity: .96;
+      opacity: .72;
+    }
+
+    .corporate::before {
+      top: 24px;
+      left: 28px;
+      border-top: 2px solid rgba(231,210,170,.85);
+      border-left: 2px solid rgba(231,210,170,.85);
+      border-radius: 70px 0 0 0;
+      box-shadow: -10px -10px 35px rgba(196,154,82,.08);
+    }
+
+    .corporate::after {
+      right: 28px;
+      bottom: 24px;
+      border-right: 2px solid rgba(231,210,170,.85);
+      border-bottom: 2px solid rgba(231,210,170,.85);
+      border-radius: 0 0 70px 0;
+      box-shadow: 10px 10px 35px rgba(196,154,82,.08);
     }
 
     .corporate-inner {
       max-width: 950px;
       margin: auto;
+      padding: 34px 28px;
       text-align: center;
       position: relative;
       z-index: 2;
     }
+
+    .corporate-inner::before,
+    .corporate-inner::after {
+      content: "✦";
+      position: absolute;
+      color: var(--champagne);
+      font-size: 17px;
+      opacity: .8;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .corporate-inner::before { left: 0; }
+    .corporate-inner::after { right: 0; }
 
     .corporate .small {
       color: var(--champagne);
       letter-spacing: 4px;
       font-size: 12px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 13px;
     }
 
     .corporate h2 {
       font-family: Georgia, serif;
       color: var(--champagne-light);
-      font-size: 44px;
+      font-size: 46px;
       font-weight: 500;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .corporate p {
@@ -710,6 +749,11 @@
       background: var(--champagne);
       border-color: var(--champagne);
       color: var(--plum);
+      box-shadow: 0 8px 24px rgba(0,0,0,.14);
+    }
+
+    .corporate .btn-primary:hover {
+      background: var(--champagne-light);
     }
 
     /* WHY US */
@@ -1186,47 +1230,12 @@
 
 </section>
   <section class="corporate" id="corporate">
-    <svg class="corporate-ribbon" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <linearGradient id="bbGoldMain" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#A9782D"/>
-          <stop offset="28%" stop-color="#F0CF78"/>
-          <stop offset="53%" stop-color="#B78131"/>
-          <stop offset="76%" stop-color="#F7DC88"/>
-          <stop offset="100%" stop-color="#A56F24"/>
-        </linearGradient>
-        <filter id="bbGlow" x="-20%" y="-40%" width="140%" height="180%">
-          <feGaussianBlur stdDeviation="7"/>
-        </filter>
-      </defs>
-      <path d="M-90 128 C180 120 300 180 470 244 C665 317 830 325 1010 294 C1195 262 1325 208 1530 115"
-            fill="none" stroke="#E8B94E" stroke-opacity=".20" stroke-width="34" filter="url(#bbGlow)"/>
-      <path d="M-90 126 C175 118 300 178 470 242 C665 315 830 323 1010 292 C1195 260 1325 206 1530 113"
-            fill="none" stroke="url(#bbGoldMain)" stroke-width="46" stroke-linecap="round"/>
-      <path d="M-90 111 C175 103 300 163 470 227 C665 300 830 308 1010 277 C1195 245 1325 191 1530 98"
-            fill="none" stroke="#FFE6A0" stroke-opacity=".68" stroke-width="3"/>
-      <path d="M-80 232 C160 112 330 122 510 226 C695 333 900 352 1085 300 C1260 251 1365 207 1525 174"
-            fill="none" stroke="url(#bbGoldMain)" stroke-width="11" stroke-linecap="round" opacity=".92"/>
-      <path d="M-80 224 C160 104 330 114 510 218 C695 325 900 344 1085 292 C1260 243 1365 199 1525 166"
-            fill="none" stroke="#FFE8A5" stroke-opacity=".65" stroke-width="2"/>
-    </svg>
-
     <div class="corporate-inner">
-
       <div class="small">Corporate Gifting</div>
-
       <h2>Celebrate Your People</h2>
-
-      <p>
-      Thoughtful Gestures. Stronger Connections.
-      </p>
-
-      <a class="btn btn-primary" href="#contact">
-      EXPLORE CORPORATE GIFTING →
-      </a>
-
+      <p>Thoughtful Gestures. Stronger Connections.</p>
+      <a class="btn btn-primary" href="#contact">EXPLORE CORPORATE GIFTING →</a>
     </div>
-
   </section>
 
 
