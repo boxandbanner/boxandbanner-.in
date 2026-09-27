@@ -672,19 +672,16 @@
 
     .corporate::before,
     .corporate::after {
-      content: "❦";
+      content: "";
       position: absolute;
       width: 150px;
       height: 150px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      color: rgba(231,210,170,.72);
-      font-family: Georgia, serif;
-      font-size: 32px;
-      line-height: 1;
       pointer-events: none;
       opacity: .82;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23E7D2AA' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 50 C23 40 29 29 34 14'/%3E%3Cpath d='M24 37 C15 36 11 31 10 24 C18 24 24 28 24 37Z'/%3E%3Cpath d='M30 27 C23 22 22 16 25 10 C31 14 34 20 30 27Z'/%3E%3Cpath d='M33 19 C39 13 46 12 52 16 C47 22 40 24 33 19Z'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: 54px 54px;
+      background-position: 16px 15px;
     }
 
     .corporate::before {
